@@ -12,6 +12,7 @@ env:
   - TOXENV=py34
   - TOXENV=py27
   - TOXENV=pypy
+  - TOXENV=flake8
 
 install: pip install -U tox
 
