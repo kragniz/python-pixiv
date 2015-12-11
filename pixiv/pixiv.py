@@ -1,11 +1,19 @@
+import json
+
 import requests
 
 
 class Pixiv(object):
     def __init__(self):
-        pass
+        self.auth_token = None
 
     def login(self, username, password):
+        '''Logs the user into Pixiv.
+
+        :param str username: login name
+        :param str password: password for the login
+        '''
+
         url = 'https://oauth.secure.pixiv.net/auth/token'
 
         data = {
@@ -17,4 +25,9 @@ class Pixiv(object):
         }
 
         resp = requests.post(url, data=data)
-        print(resp.status_code, resp.text)
+
+        if resp.status_code != 200:
+            raise Exception('Failed to auth')
+
+        blob = json.loads(resp.text)
+        self.auth_token = blob.get('response').get('access_token')
