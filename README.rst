@@ -8,7 +8,10 @@ Pixiv
 .. image:: https://img.shields.io/travis/kragniz/python-pixiv.svg
         :target: https://travis-ci.org/kragniz/python-pixiv
 
-.. image:: https://readthedocs.org/projects/python-pixiv/badge/?version=latest
+.. image:: https://ci.appveyor.com/api/projects/status/github/kragniz/python-pixiv?svg=true
+        :target: https://ci.appveyor.com/project/kragniz/pixiv
+
+.. image:: https://readthedocs.org/projects/pixiv/badge/?version=latest
         :target: http://pixiv.rtfd.org
         :alt: Documentation Status
 
