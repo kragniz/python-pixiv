@@ -3,6 +3,15 @@ import json
 import requests
 
 
+class Authed(object):
+    def __init__(self):
+        self.auth_token = None
+
+    def get(self, url, params={}):
+        headers = {'Authorization': 'Bearer {}'.format(self.access_token)}
+        return requests.get(url, params=params, headers=headers)
+
+
 class Pixiv(object):
     '''Store session data'''
 
