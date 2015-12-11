@@ -4,6 +4,8 @@ import requests
 
 
 class Authed(object):
+    '''Base class for classes that need to make authenticated calls.'''
+
     def __init__(self, auth_token=None):
         self.auth_token = auth_token
 
@@ -13,11 +15,15 @@ class Authed(object):
 
 
 class User(Authed):
+    '''A Pixiv user'''
+
     def __init__(self, user_id, auth_token=None):
         super(User, self).__init__(auth_token=auth_token)
         self.user_id = user_id
 
     def works(self):
+        '''Return works for this user'''
+
         params = {
             'page': 1,
             'per_page': 30,
@@ -62,4 +68,9 @@ class Pixiv(Authed):
         self.auth_token = blob.get('response').get('access_token')
 
     def user(self, user_id):
+        '''Return a User object for a particular Pixiv user.
+
+        :param int user_id: ID of the user
+        '''
+
         return User(user_id, auth_token=self.auth_token)
