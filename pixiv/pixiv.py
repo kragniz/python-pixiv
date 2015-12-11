@@ -4,6 +4,8 @@ import requests
 
 
 class Pixiv(object):
+    '''Store session data'''
+
     def __init__(self):
         self.auth_token = None
 
