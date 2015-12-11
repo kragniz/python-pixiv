@@ -27,7 +27,7 @@ setup(
     long_description=readme + '\n\n' + history,
     author="Louis Taylor",
     author_email='louis@kragniz.eu',
-    url='https://github.com/kragniz/pixiv',
+    url='https://github.com/kragniz/python-pixiv',
     packages=[
         'pixiv',
     ],
