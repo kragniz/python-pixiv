@@ -4,15 +4,33 @@ import requests
 
 
 class Authed(object):
-    def __init__(self):
-        self.auth_token = None
+    def __init__(self, auth_token=None):
+        self.auth_token = auth_token
 
     def get(self, url, params={}):
-        headers = {'Authorization': 'Bearer {}'.format(self.access_token)}
+        headers = {'Authorization': 'Bearer {}'.format(self.auth_token)}
         return requests.get(url, params=params, headers=headers)
 
 
-class Pixiv(object):
+class User(Authed):
+    def __init__(self, user_id, auth_token=None):
+        super(User, self).__init__(auth_token=auth_token)
+        self.user_id = user_id
+
+    def works(self):
+        params = {
+            'page': 1,
+            'per_page': 30,
+            'include_stats': True,
+            'include_sanity_level': True,
+            'image_sizes': ','.join(['px_128x128', 'px_480mw', 'large'])
+        }
+        return self.get('https://public-api.secure.pixiv.net'
+                        '/v1/users/{}/works.json'.format(self.user_id),
+                        params=params)
+
+
+class Pixiv(Authed):
     '''Store session data'''
 
     def __init__(self):
@@ -42,3 +60,6 @@ class Pixiv(object):
 
         blob = json.loads(resp.text)
         self.auth_token = blob.get('response').get('access_token')
+
+    def user(self, user_id):
+        return User(user_id, auth_token=self.auth_token)
