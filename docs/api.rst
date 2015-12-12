@@ -1,5 +1,5 @@
-API
----
+API reference
+-------------
 
 .. automodule:: pixiv
     :members:
