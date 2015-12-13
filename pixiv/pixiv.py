@@ -1,6 +1,8 @@
+from abc import ABCMeta, abstractmethod
 import json
 
 import requests
+import six
 
 
 class Authed(object):
@@ -14,7 +16,15 @@ class Authed(object):
         return requests.get(url, params=params, headers=headers)
 
 
-class User(Authed):
+@six.add_metaclass(ABCMeta)
+class BaseUser(object):
+    @abstractmethod
+    def works(self):
+        '''Return works for this user'''
+        pass
+
+
+class User(BaseUser, Authed):
     '''A Pixiv user'''
 
     def __init__(self, user_id, auth_token=None):
@@ -22,8 +32,6 @@ class User(Authed):
         self.user_id = user_id
 
     def works(self):
-        '''Return works for this user'''
-
         params = {
             'page': 1,
             'per_page': 30,
