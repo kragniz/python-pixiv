@@ -51,6 +51,7 @@ class User(BaseUser, Authed):
         self.id = id
 
     def works(self):
+        #FIXME: this does not handle pagination
         params = {
             'page': 1,
             'per_page': 30,
@@ -58,9 +59,13 @@ class User(BaseUser, Authed):
             'include_sanity_level': True,
             'image_sizes': ','.join(['px_128x128', 'px_480mw', 'large'])
         }
-        return self.get('https://public-api.secure.pixiv.net'
-                        '/v1/users/{}/works.json'.format(self.id),
-                        params=params)
+        api_data = self.get('https://public-api.secure.pixiv.net'
+                            '/v1/users/{}/works.json'.format(self.id),
+                            params=params)
+        api_data_dict = json.loads(api_data.text)
+        works_data = api_data_dict.get('response')
+
+        return [Work.from_api_data(d) for d in works_data]
 
 
 class Pixiv(Authed):
