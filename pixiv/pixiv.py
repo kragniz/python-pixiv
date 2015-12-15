@@ -76,7 +76,7 @@ class Pixiv(Authed):
         self.auth_token = blob.get('response').get('access_token')
 
     def user(self, user_id):
-        '''Return a User object for a particular Pixiv user.
+        '''Return a :class:`.User` object for a particular Pixiv user.
 
         :param int user_id: ID of the user
         '''
