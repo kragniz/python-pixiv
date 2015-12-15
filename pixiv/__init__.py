@@ -5,5 +5,9 @@ __email__ = 'louis@kragniz.eu'
 __version__ = '0.1.0'
 
 from .pixiv import Pixiv
+from .pixiv import User
 
-__all__ = ['Pixiv']
+__all__ = (
+    'Pixiv',
+    'User',
+)
