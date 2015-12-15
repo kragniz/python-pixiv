@@ -133,3 +133,10 @@ class Pixiv(Authed):
         '''
 
         return User(user_id, auth_token=self.auth_token)
+
+    def work(self, work_id):
+        '''Return a :class:`.Work` object with a specified ID.
+
+        :param int work_id: ID of the artwork
+        '''
+        return Work(work_id, auth_token=self.auth_token)
