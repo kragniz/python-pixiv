@@ -51,7 +51,7 @@ class User(BaseUser, Authed):
         self.id = id
 
     def works(self):
-        #FIXME: this does not handle pagination
+        # FIXME: this does not handle pagination
         params = {
             'page': 1,
             'per_page': 30,
