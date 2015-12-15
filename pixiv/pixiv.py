@@ -27,11 +27,12 @@ class Work(Authed):
         self.image = None
 
     def __str__(self):
-        return 'Work: {title}'.format(title=self.image)
+        return 'Work: {title}'.format(title=self.title)
 
     def _load_data(self, api_data):
         image_urls = api_data.get('image_urls')
         self.image = image_urls.get('large')
+        copy_dict_items_to_object(self, api_data, ('title',))
 
     @classmethod
     def from_api_data(cls, api_data):
