@@ -28,6 +28,12 @@ class Work(Authed):
         image_urls = api_data.get('image_urls')
         self.image = image_urls.get('large')
 
+    @classmethod
+    def from_api_data(cls, api_data):
+        work = cls(api_data.get('id'))
+        work._load_data(api_data)
+        return work
+
 
 @six.add_metaclass(ABCMeta)
 class BaseUser(object):
