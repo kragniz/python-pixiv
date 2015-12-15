@@ -27,9 +27,9 @@ class BaseUser(object):
 class User(BaseUser, Authed):
     '''A Pixiv user'''
 
-    def __init__(self, user_id, auth_token=None):
+    def __init__(self, id, auth_token=None):
         super(User, self).__init__(auth_token=auth_token)
-        self.user_id = user_id
+        self.id = id
 
     def works(self):
         params = {
@@ -40,7 +40,7 @@ class User(BaseUser, Authed):
             'image_sizes': ','.join(['px_128x128', 'px_480mw', 'large'])
         }
         return self.get('https://public-api.secure.pixiv.net'
-                        '/v1/users/{}/works.json'.format(self.user_id),
+                        '/v1/users/{}/works.json'.format(self.id),
                         params=params)
 
 
