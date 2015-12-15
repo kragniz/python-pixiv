@@ -19,8 +19,11 @@ Example
 
     pixiv = login('weeb', password='hunter2')
     pixiv.me
-    pixiv.me.following.works
+    pixiv.me.following
 
     user = pixiv.user(171980)
-    user.works
+
+    for work in user.works:
+        print(work.title)
+
     user.favorites
