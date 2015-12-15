@@ -22,6 +22,11 @@ def copy_dict_items_to_object(obj, dic, items):
 
 
 class Work(Authed):
+    '''A Pixiv artwork
+
+    :param int id: the id of this work
+    '''
+
     def __init__(self, id):
         self.id = id
         self.image = None
