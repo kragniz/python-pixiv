@@ -16,6 +16,19 @@ class Authed(object):
         return requests.get(url, params=params, headers=headers)
 
 
+class Work(Authed):
+    def __init__(self, id):
+        self.id = id
+        self.image = None
+
+    def __str__(self):
+        return 'Work: {title}'.format(title=self.image)
+
+    def _load_data(self, api_data):
+        image_urls = api_data.get('image_urls')
+        self.image = image_urls.get('large')
+
+
 @six.add_metaclass(ABCMeta)
 class BaseUser(object):
     @abstractmethod
