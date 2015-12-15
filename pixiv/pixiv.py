@@ -27,9 +27,14 @@ class Work(Authed):
     :param int id: the id of this work
     '''
 
-    def __init__(self, id):
+    def __init__(self, id, auth_token=None):
+        super(Work, self).__init__(auth_token=auth_token)
         self.id = id
         self.image = None
+        self.title = None
+        self.width = None
+        self.height = None
+        self.tags = []
 
     def __str__(self):
         return 'Work: {title} ({width}x{height})'.format(
