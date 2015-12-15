@@ -59,10 +59,15 @@ class User(BaseUser, Authed):
     '''A Pixiv user'''
 
     def __init__(self, id, auth_token=None):
+        '''
+        :param int id: the id of this user
+        '''
         super(User, self).__init__(auth_token=auth_token)
         self.id = id
 
     def works(self):
+        '''Return a list of :class:`.Work`s created by this user'''
+
         # FIXME: this does not handle pagination
         params = {
             'page': 1,
