@@ -10,4 +10,5 @@ from .pixiv import User
 __all__ = (
     'Pixiv',
     'User',
+    'Work',
 )

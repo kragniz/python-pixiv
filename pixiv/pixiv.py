@@ -56,17 +56,17 @@ class BaseUser(object):
 
 
 class User(BaseUser, Authed):
-    '''A Pixiv user'''
+    '''A Pixiv user
+
+    :param int id: the id of this user
+    '''
 
     def __init__(self, id, auth_token=None):
-        '''
-        :param int id: the id of this user
-        '''
         super(User, self).__init__(auth_token=auth_token)
         self.id = id
 
     def works(self):
-        '''Return a list of :class:`.Work`s created by this user'''
+        '''Return a list of :class:`.Work` created by this user'''
 
         # FIXME: this does not handle pagination
         params = {
