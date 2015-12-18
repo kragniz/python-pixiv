@@ -1,5 +1,5 @@
-Pixiv
 =====
+Pixiv
 =====
 
 .. image:: https://img.shields.io/pypi/v/python-pixiv.svg
