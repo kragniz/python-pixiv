@@ -137,3 +137,16 @@ class Pixiv(Authed):
         :param int work_id: ID of the artwork
         '''
         return Work(work_id, auth_token=self.auth_token)
+
+    def search(self, terms):
+        url = 'https://public-api.secure.pixiv.net/v1/search/works.json'
+
+        params = {
+            'q': terms,
+            'period': 'day',
+            'order': 'asc',
+            'mode': 'caption',
+            'sort': 'date',
+        }
+        resp = self.get(url, params=params)
+        return resp
