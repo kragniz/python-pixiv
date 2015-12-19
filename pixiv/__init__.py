@@ -7,6 +7,7 @@ __version__ = '0.1.0'
 from .pixiv import Pixiv
 from .pixiv import User
 
+
 def login(username, password):
     p = Pixiv()
     p.login(username, password)
