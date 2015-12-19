@@ -149,4 +149,8 @@ class Pixiv(Authed):
             'sort': 'date',
         }
         resp = self.get(url, params=params)
-        return resp
+        api_data_dict = json.loads(resp.text)
+        print(api_data_dict)
+        works_data = api_data_dict.get('response')
+
+        return [Work.from_api_data(d) for d in works_data]
