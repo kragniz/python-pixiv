@@ -157,6 +157,11 @@ class Pixiv(Authed):
                           ``'asc'`` or ``'desc'``
         '''
 
+        if period not in {'all', 'day', 'week', 'month'}:
+            raise ValueError('"{value}" is not a valid value for period. Try '
+                             'one of "all", "day", "week" or '
+                             '"month"'.format(value=period))
+
         url = 'https://public-api.secure.pixiv.net/v1/search/works.json'
 
         params = {
