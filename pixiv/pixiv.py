@@ -53,6 +53,11 @@ class Work(Authed):
         work._load_data(api_data)
         return work
 
+    @property
+    def link(self):
+        return ('http://www.pixiv.net/member_illust.php?'
+                'illust_id={id}&mode=medium'.format(id=self.id))
+
 
 @six.add_metaclass(ABCMeta)
 class BaseUser(object):
