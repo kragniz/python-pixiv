@@ -13,10 +13,10 @@ class Authed(object):
     def __init__(self, auth_token=None):
         self.auth_token = auth_token
 
-    def get(self, url, params={}):
+    def get(self, url, **kwargs):
         headers = {'Referer': 'http://spapi.pixiv.net/',
                    'Authorization': 'Bearer {}'.format(self.auth_token)}
-        return requests.get(url, params=params, headers=headers)
+        return requests.get(url, headers=headers, **kwargs)
 
 
 class Work(Authed):
