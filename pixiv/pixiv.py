@@ -138,12 +138,14 @@ class Pixiv(Authed):
         '''
         return Work(work_id, auth_token=self.auth_token)
 
-    def search(self, terms, period='all'):
+    def search(self, terms, period='all', order='asc'):
         '''Search pixiv and return a list of :class:`.Work` objects.
 
         :param str terms: search terms
         :param str period: period to search over. This must be one of ``all``,
         ``day``, ``week`` or ``month``
+        :param str order: sort order to list results. This must be either
+        ``asc`` or ``desc``
         '''
 
         url = 'https://public-api.secure.pixiv.net/v1/search/works.json'
@@ -151,7 +153,7 @@ class Pixiv(Authed):
         params = {
             'q': terms,
             'period': period,
-            'order': 'asc',
+            'order': order,
             'mode': 'caption',
             'sort': 'date',
             'image_sizes': ','.join(['px_128x128', 'px_480mw', 'large'])
