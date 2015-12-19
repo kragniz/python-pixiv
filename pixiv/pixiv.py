@@ -35,9 +35,21 @@ class Work(Authed):
         self.height = None
         self.tags = []
 
-    def save(self):
+    def save(self, filename=None):
+        '''Save this artwork to a local file
+
+        :param str filename: the filename to save to. If this is ``None``, then
+                             the image will be named with the default from the
+                             pixiv site, e.g. ``1234567_p0.jpg``
+        :return: the filename the image was saved to
+        :rtype: str
+        '''
+
         r = self.get(self.image, stream=True)
-        _, filename = os.path.split(self.image)
+
+        if filename is None:
+            _, filename = os.path.split(self.image)
+
         with open(filename, 'wb') as f:
             for chunk in r.iter_content(chunk_size=1024):
                 if chunk:
