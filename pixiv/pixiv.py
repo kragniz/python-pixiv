@@ -148,9 +148,9 @@ class Pixiv(Authed):
 
         :param str terms: search terms
         :param str period: period to search over. This must be one of ``all``,
-        ``day``, ``week`` or ``month``
+                           ``day``, ``week`` or ``month``
         :param str order: sort order to list results. This must be either
-        ``asc`` or ``desc``
+                          ``asc`` or ``desc``
         '''
 
         url = 'https://public-api.secure.pixiv.net/v1/search/works.json'
