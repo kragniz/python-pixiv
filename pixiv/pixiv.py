@@ -1,5 +1,6 @@
 from abc import ABCMeta, abstractmethod
 import json
+import os
 
 import requests
 import six
@@ -33,6 +34,15 @@ class Work(Authed):
         self.width = None
         self.height = None
         self.tags = []
+
+    def save(self):
+        r = self.get(self.image, stream=True)
+        _, filename = os.path.split(self.image)
+        with open(filename, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=1024):
+                if chunk:
+                    f.write(chunk)
+        return filename
 
     def __str__(self):
         return 'Work: {title} ({width}x{height})'.format(
