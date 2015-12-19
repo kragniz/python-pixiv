@@ -6,6 +6,7 @@ __version__ = '0.1.0'
 
 from .pixiv import Pixiv
 from .pixiv import User
+from .pixiv import Work
 
 
 def login(username, password):
@@ -14,6 +15,7 @@ def login(username, password):
     return p
 
 __all__ = (
+    'login',
     'Pixiv',
     'User',
     'Work',
