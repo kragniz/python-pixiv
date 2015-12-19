@@ -14,7 +14,8 @@ class Authed(object):
         self.auth_token = auth_token
 
     def get(self, url, params={}):
-        headers = {'Authorization': 'Bearer {}'.format(self.auth_token)}
+        headers = {'Referer': 'http://spapi.pixiv.net/',
+                   'Authorization': 'Bearer {}'.format(self.auth_token)}
         return requests.get(url, params=params, headers=headers)
 
 
