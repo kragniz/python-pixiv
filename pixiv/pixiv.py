@@ -132,6 +132,7 @@ class Pixiv(Authed):
         '''Return a :class:`.User` object for a particular Pixiv user.
 
         :param int user_id: ID of the user
+        :rtype: :class:`.User`
         '''
 
         return User(user_id, auth_token=self.auth_token)
@@ -140,7 +141,9 @@ class Pixiv(Authed):
         '''Return a :class:`.Work` object with a specified ID.
 
         :param int work_id: ID of the artwork
+        :rtype: :class:`.Work`
         '''
+
         return Work(work_id, auth_token=self.auth_token)
 
     def search(self, terms, period='all', order='asc'):
