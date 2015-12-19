@@ -138,7 +138,7 @@ class Pixiv(Authed):
         '''
         return Work(work_id, auth_token=self.auth_token)
 
-    def search(self, terms):
+    def search(self, terms, period='all'):
         '''Search pixiv and return a list of :class:`.Work` objects.
 
         :param str terms: search terms
@@ -148,7 +148,7 @@ class Pixiv(Authed):
 
         params = {
             'q': terms,
-            'period': 'day',
+            'period': period,
             'order': 'asc',
             'mode': 'caption',
             'sort': 'date',
