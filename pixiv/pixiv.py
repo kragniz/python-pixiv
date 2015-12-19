@@ -49,6 +49,7 @@ class Work(Authed):
 
     @classmethod
     def from_api_data(cls, api_data):
+        '''Return a new instance populated with data from the API'''
         work = cls(api_data.get('id'))
         work._load_data(api_data)
         return work
