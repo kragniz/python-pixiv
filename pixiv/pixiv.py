@@ -142,6 +142,8 @@ class Pixiv(Authed):
         '''Search pixiv and return a list of :class:`.Work` objects.
 
         :param str terms: search terms
+        :param str period: period to search over. This must be one of ``all``,
+        ``day``, ``week`` or ``month``
         '''
 
         url = 'https://public-api.secure.pixiv.net/v1/search/works.json'
