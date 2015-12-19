@@ -4,6 +4,8 @@ import json
 import requests
 import six
 
+from . import utils
+
 
 class Authed(object):
     '''Base class for classes that need to make authenticated calls.'''
@@ -14,11 +16,6 @@ class Authed(object):
     def get(self, url, params={}):
         headers = {'Authorization': 'Bearer {}'.format(self.auth_token)}
         return requests.get(url, params=params, headers=headers)
-
-
-def copy_dict_items_to_object(obj, dic, items):
-    for name in items:
-        obj.__dict__[name] = dic.get(name)
 
 
 class Work(Authed):
@@ -45,10 +42,10 @@ class Work(Authed):
     def _load_data(self, api_data):
         image_urls = api_data.get('image_urls')
         self.image = image_urls.get('large')
-        copy_dict_items_to_object(self, api_data, ('title',
-                                                   'width',
-                                                   'height',
-                                                   'tags',))
+        utils.copy_dict_items_to_object(self, api_data, ('title',
+                                                         'width',
+                                                         'height',
+                                                         'tags',))
 
     @classmethod
     def from_api_data(cls, api_data):
