@@ -162,6 +162,10 @@ class Pixiv(Authed):
                              'one of "all", "day", "week" or '
                              '"month"'.format(value=period))
 
+        if order not in {'asc', 'desc'}:
+            raise ValueError('"{value}" is not a valid value for order. Try '
+                             'either "asc" or "desc"'.format(value=order))
+
         url = 'https://public-api.secure.pixiv.net/v1/search/works.json'
 
         params = {
