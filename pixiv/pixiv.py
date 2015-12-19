@@ -147,6 +147,7 @@ class Pixiv(Authed):
             'order': 'asc',
             'mode': 'caption',
             'sort': 'date',
+            'image_sizes': ','.join(['px_128x128', 'px_480mw', 'large'])
         }
         resp = self.get(url, params=params)
         api_data_dict = json.loads(resp.text)
