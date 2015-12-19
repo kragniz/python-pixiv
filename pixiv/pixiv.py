@@ -24,6 +24,12 @@ class Work(Authed):
     '''A Pixiv artwork
 
     :param int id: the id of this work
+
+    :ivar int id: ID of this work
+    :ivar str image: URL of the large size image for this work
+    :ivar int width: width of image
+    :ivar int height: height of image
+    :ivar list tags: list of tags this image has been tagged with
     '''
 
     def __init__(self, id, auth_token=None):
