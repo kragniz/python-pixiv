@@ -139,6 +139,11 @@ class Pixiv(Authed):
         return Work(work_id, auth_token=self.auth_token)
 
     def search(self, terms):
+        '''Search pixiv and return a list of :class:`.Work` objects.
+
+        :param str terms: search terms
+        '''
+
         url = 'https://public-api.secure.pixiv.net/v1/search/works.json'
 
         params = {
