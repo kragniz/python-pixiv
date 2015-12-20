@@ -162,7 +162,7 @@ class Pixiv(Authed):
             'password': password
         }
 
-        resp = requests.post(url, data=data)
+        resp = self.session.post(url, data=data)
 
         if resp.status_code != 200:
             raise Exception('Failed to auth')
