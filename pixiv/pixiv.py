@@ -11,13 +11,17 @@ from . import utils
 class Authed(object):
     '''Base class for classes that need to make authenticated calls.'''
 
-    def __init__(self, auth_token=None):
+    def __init__(self, auth_token=None, session=None):
         self.auth_token = auth_token
+
+        if session is None:
+            session = requests.Session()
+        self.session = session
 
     def get(self, url, **kwargs):
         headers = {'Referer': 'http://spapi.pixiv.net/',
                    'Authorization': 'Bearer {}'.format(self.auth_token)}
-        return requests.get(url, headers=headers, **kwargs)
+        return self.session.get(url, headers=headers, **kwargs)
 
 
 class Work(Authed):
@@ -29,11 +33,12 @@ class Work(Authed):
     :ivar str image: URL of the large size image for this work
     :ivar int width: width of image
     :ivar int height: height of image
-    :ivar list tags: list of tags this image has been tagged with
+    :ivar tags: list of tags this image has been tagged with
+    :type tags: list of str
     '''
 
-    def __init__(self, id, auth_token=None):
-        super(Work, self).__init__(auth_token=auth_token)
+    def __init__(self, id, auth_token=None, session=None):
+        super(Work, self).__init__(auth_token=auth_token, session=session)
         self.id = id
         self.image = None
         self.title = None
@@ -103,8 +108,8 @@ class User(BaseUser, Authed):
     :param int id: the id of this user
     '''
 
-    def __init__(self, id, auth_token=None):
-        super(User, self).__init__(auth_token=auth_token)
+    def __init__(self, id, auth_token=None, session=None):
+        super(User, self).__init__(auth_token=auth_token, session=session)
         self.id = id
 
     def works(self):
@@ -130,8 +135,8 @@ class User(BaseUser, Authed):
 class Pixiv(Authed):
     '''Store session data'''
 
-    def __init__(self):
-        self.auth_token = None
+    def __init__(self, session=None):
+        super(Pixiv, self).__init__(session=session)
 
     def login(self, username, password):
         '''Logs the user into Pixiv.
