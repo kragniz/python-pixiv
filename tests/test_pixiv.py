@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 '''Tests for `pixiv` module.'''
 
 import os
@@ -28,3 +29,18 @@ class TestPixiv:
     def test_login(self, betamax_session):
         p = pixiv.Pixiv(session=betamax_session)
         p.login(test_username, test_password)
+        assert p.auth_token is not None
+
+    def test_user(self, betamax_session):
+        p = pixiv.Pixiv(session=betamax_session)
+        p.login(test_username, test_password)
+        user = p.user(7631951)
+        assert user.id == 7631951
+
+    def test_user_works(self, betamax_session):
+        p = pixiv.Pixiv(session=betamax_session)
+        p.login(test_username, test_password)
+        user = p.user(7631951)
+        work = user.works()[0]
+        assert work.title == u'星の語'
+        assert work.id == 54032421
