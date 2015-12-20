@@ -28,7 +28,7 @@ setup_requires = [
 
 setup(
     name='pixiv',
-    version='0.1.0',
+    version='0.1.1',
     description="Pixiv API client.",
     long_description=readme + '\n\n' + history,
     author="Louis Taylor",
