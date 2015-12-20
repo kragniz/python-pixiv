@@ -19,6 +19,7 @@ requirements = [
 
 test_requirements = [
     'pytest',
+    'betamax',
 ]
 
 setup_requires = [
@@ -32,7 +33,7 @@ setup(
     long_description=readme + '\n\n' + history,
     author="Louis Taylor",
     author_email='louis@kragniz.eu',
-    url='https://github.com/kragniz/python-pixiv',
+    url='https://pixiv.readthedocs.org',
     packages=[
         'pixiv',
     ],
