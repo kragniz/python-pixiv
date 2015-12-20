@@ -15,8 +15,11 @@ pytest.mark.usefixtures('betamax_session')
 test_username = os.environ.get('USERNAME', 'pixiv-username')
 test_password = os.environ.get('PASSWORD', 'pixiv-password')
 
+record_mode = 'none' if os.environ.get('CONTINUOUS_INTEGRATION') else 'once'
+
 with betamax.Betamax.configure() as config:
     config.cassette_library_dir = 'tests/cassettes'
+    config.default_cassette_options['record_mode'] = record_mode
     config.define_cassette_placeholder('pixiv-username', test_username)
     config.define_cassette_placeholder('pixiv-password', test_password)
 
