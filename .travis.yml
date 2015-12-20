@@ -14,21 +14,17 @@ env:
   - TOXENV=pypy
   - TOXENV=flake8
 
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install: pip install -U tox
 
-# command to run tests, e.g. python setup.py test
 script: tox
 
-# After you create the Github repo and add it to Travis, run the
-# travis_pypi_setup.py script to finish PyPI deployment setup
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
   user: kragniz
   password:
-    secure: PLEASE_REPLACE_ME
+    secure: 3CodiqpXEYgC+tcYwTnDLMMdGYUQ5w474aCzacRo6J7ZJgBGeIImF/AGij65DXa+nw8IFWrFXgJhd6ViZvjcuhMWrLctUNIBETklYbMBt127L+wzMuhQ32BZxJeoXo9jf5+7Bayw3FuiH0BYqA6qkt6iMmDaQFhKp4mDGU8WmuAXGxr2mGP+ELTx+QqdnQwMdnJJERqXGUvz0DlhX+JoQRRfUCMJ0XjfyUXl1LxUTItFtt7ciJrTaBFkdq426YXHdbyYj3ocERu+PSs7EWjBFR3XhL/mZGVxVDJZhO7dCMjfQvLHQiGGivIu8+4Hm98EhZ1bFgYD48jnYaFWVV7eNoj8dm/CinVMtEEI77levj1HXl7nXQn78tEL7AKpKyTR9Rx/e+PXn6aVgRVhpkWgQAL/vDcWYVp86e+Vl4xLhKXQtK2ZppFDQ9gWbmo2yBQVbzMMJ3ygb1qen8xYnxyPVK96az46nDvgoUZO8tRikF88RZBwV7aK3P9eQhA/QdVIlgQUI68ZbK6UxSpC32UvWrIqBIfrb8r+5qOJVuPvSlxDaHnk41E91kBsydCyxR62HDgahs1tPOWV4n8Hb8U8Yb6o+mczao7k77rvxFv6kQiE/8uihirGFP/3jbd/asQlRO58GNF48nJDhLo8uqvfiZg48IDweA4RGiXVNLQKvYM=
   on:
     tags: true
-    repo: kragniz/pixiv
+    repo: kragniz/python-pixiv
     condition: $TOXENV == py27
