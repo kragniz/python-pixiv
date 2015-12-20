@@ -86,9 +86,9 @@ class Work(Authed):
                                                          'tags',))
 
     @classmethod
-    def from_api_data(cls, api_data, session=None):
+    def from_api_data(cls, api_data, auth_token=None, session=None):
         '''Return a new instance populated with data from the API'''
-        work = cls(api_data.get('id'), session=session)
+        work = cls(api_data.get('id'), auth_token=auth_token, session=session)
         work._load_data(api_data)
         return work
 
@@ -133,7 +133,9 @@ class User(BaseUser, Authed):
         api_data_dict = json.loads(api_data.text)
         works_data = api_data_dict.get('response')
 
-        return [Work.from_api_data(d, session=self.session)
+        return [Work.from_api_data(d,
+                                   auth_token=self.auth_token,
+                                   session=self.session)
                 for d in works_data]
 
 
@@ -196,6 +198,8 @@ class Pixiv(Authed):
                           ``'asc'`` or ``'desc'``
         '''
 
+        # FIXME: this does not handle pagination
+
         if period not in {'all', 'day', 'week', 'month'}:
             raise ValueError('"{value}" is not a valid value for period. Try '
                              'one of "all", "day", "week" or '
@@ -219,5 +223,7 @@ class Pixiv(Authed):
         api_data_dict = json.loads(resp.text)
         works_data = api_data_dict.get('response')
 
-        return [Work.from_api_data(d, session=self.session)
+        return [Work.from_api_data(d,
+                                   auth_token=self.auth_token,
+                                   session=self.session)
                 for d in works_data]
