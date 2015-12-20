@@ -100,7 +100,10 @@ Before you submit a pull request, check that it meets these guidelines:
    feature to the list in README.rst.
 3. The pull request should work for Python 2.7, 3.4, and 3.5, and for PyPy.
    Check https://travis-ci.org/kragniz/python-pixiv/pull_requests and make sure that
-   the tests pass for all supported Python versions.
+   the tests pass for all supported Python versions. We use `six
+   <https://pythonhosted.org/six/>`_ for compatibility in the parts where the
+   python2 and python3 APIs diverge. Use this instead of rolling your own
+   compatibility layer.
 
 Tips
 ----
