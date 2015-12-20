@@ -6,6 +6,7 @@ import requests
 import six
 
 from . import utils
+from . import exceptions
 
 
 class Authed(object):
@@ -19,6 +20,9 @@ class Authed(object):
         self.session = session
 
     def get(self, url, **kwargs):
+        if self.auth_token is None:
+            raise exceptions.NotAuthedError('You need to login() first')
+
         headers = {'Referer': 'http://spapi.pixiv.net/',
                    'Authorization': 'Bearer {}'.format(self.auth_token)}
         return self.session.get(url, headers=headers, **kwargs)
