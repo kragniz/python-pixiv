@@ -1,11 +1,4 @@
-#!/usr/bin/env python
-
-'''
-test_pixiv
-----------
-
-Tests for `pixiv` module.
-'''
+'''Tests for `pixiv` module.'''
 
 import unittest
 
