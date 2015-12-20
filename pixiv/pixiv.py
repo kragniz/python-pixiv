@@ -82,9 +82,9 @@ class Work(Authed):
                                                          'tags',))
 
     @classmethod
-    def from_api_data(cls, api_data):
+    def from_api_data(cls, api_data, session=None):
         '''Return a new instance populated with data from the API'''
-        work = cls(api_data.get('id'))
+        work = cls(api_data.get('id'), session=session)
         work._load_data(api_data)
         return work
 
@@ -129,7 +129,8 @@ class User(BaseUser, Authed):
         api_data_dict = json.loads(api_data.text)
         works_data = api_data_dict.get('response')
 
-        return [Work.from_api_data(d) for d in works_data]
+        return [Work.from_api_data(d, session=self.session)
+                for d in works_data]
 
 
 class Pixiv(Authed):
@@ -170,7 +171,7 @@ class Pixiv(Authed):
         :rtype: :class:`.User`
         '''
 
-        return User(user_id, auth_token=self.auth_token)
+        return User(user_id, auth_token=self.auth_token, session=self.session)
 
     def work(self, work_id):
         '''Return a :class:`.Work` object with a specified ID.
@@ -179,7 +180,7 @@ class Pixiv(Authed):
         :rtype: :class:`.Work`
         '''
 
-        return Work(work_id, auth_token=self.auth_token)
+        return Work(work_id, auth_token=self.auth_token, session=self.session)
 
     def search(self, terms, period='all', order='asc'):
         '''Search pixiv and return a list of :class:`.Work` objects.
@@ -214,4 +215,5 @@ class Pixiv(Authed):
         api_data_dict = json.loads(resp.text)
         works_data = api_data_dict.get('response')
 
-        return [Work.from_api_data(d) for d in works_data]
+        return [Work.from_api_data(d, session=self.session)
+                for d in works_data]
