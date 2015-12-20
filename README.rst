@@ -16,7 +16,7 @@ python-pixiv
         :alt: Documentation Status
 
 
-python-pixiv: Pixiv API client for humans.
+python-pixiv: Pixiv API client for moe girls.
 
 * Free software: LGPLv3
 * Documentation: https://pixiv.readthedocs.org.
