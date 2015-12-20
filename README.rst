@@ -26,7 +26,9 @@ python-pixiv: Pixiv API client for moe girls.
 Quickstart
 ----------
 
-Install python-pixiv::
+Install python-pixiv:
+
+.. code-block:: bash
 
     $ pip install pixiv
 
