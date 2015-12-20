@@ -1,6 +1,6 @@
-=====
-Pixiv
-=====
+============
+python-pixiv
+============
 
 .. image:: https://img.shields.io/pypi/v/python-pixiv.svg
         :target: https://pypi.python.org/pypi/pixiv
@@ -16,7 +16,7 @@ Pixiv
         :alt: Documentation Status
 
 
-Pixiv API client.
+python-pixiv: Pixiv API client for humans.
 
 * Free software: LGPLv3
 * Documentation: https://pixiv.readthedocs.org.
