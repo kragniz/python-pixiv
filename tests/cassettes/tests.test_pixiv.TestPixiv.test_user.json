@@ -1,1 +1,50 @@
-{"http_interactions": [{"response": {"body": {"string": "", "encoding": null, "base64_string": "H4sIAAAAAAAAA53RW0/CMBgG4P/Sa2CbY4NwPZUQUQQhzixpuq6wynqwB5yS/Xc/l3i45qI3b/o+X/P1jAyzWknL0OyMCKXMWuzUkUk0Q8v5Y3xLyTzPJf/cpk+bU13qxXi5vammO1fZdabzyvssXx/RALFWc8Awh2qchuEA9Q52HxpwVDJimIF7lqo+8LLhgjtWQWbYHqr17+Rroq+nZSReX66eH+43w3YxielKZO4d525553Yya+q3clVrC21vAYbna6P2vGGYC3Jg2JvG9mmLo7SNUmBr5/SsCIrAKm8oG2ne8tNIMlcEVAmhZBH0XVsEUuEfztqRlgeYA1IStkl4ufQHRZOwhXMp1UPdAPEKhChNojiZjkGWRHzvlmg+dMw6SOBPlZfuf9h13ReP9gWL+AEAAA=="}, "url": "https://oauth.secure.pixiv.net/auth/token", "headers": {"Vary": "Accept-Encoding", "Content-Encoding": "gzip", "Expires": "Thu, 19 Nov 1981 08:52:00 GMT", "Content-Type": "application/json", "Pragma": "no-cache", "Cache-Control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0", "Content-Length": "310", "Server": "nginx", "Date": "Sun, 20 Dec 2015 12:40:36 GMT", "X-Content-Type-Options": "nosniff", "Set-Cookie": "PHPSESSID=16513584_cf4e343daa01a430c72dfb3fcadb0538; expires=Sun, 20-Dec-2015 13:40:36 GMT; Max-Age=3600; path=/; domain=.pixiv.net; secure", "Connection": "keep-alive"}, "status": {"message": "OK", "code": 200}}, "request": {"body": {"string": "client_id=bYGKuGVw91e0NMfPGp44euvGt59s&password=pixiv-password&grant_type=password&username=pixiv-username&client_secret=HP3RmkgAmEGro0gn1x9ioawQE8WMfvLXDz3ZqxpK", "encoding": "utf-8"}, "headers": {"Content-Type": "application/x-www-form-urlencoded", "Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Content-Length": "148", "User-Agent": "python-requests/2.8.1", "Connection": "keep-alive"}, "method": "POST", "uri": "https://oauth.secure.pixiv.net/auth/token"}, "recorded_at": "2015-12-20T12:40:36"}], "recorded_with": "betamax/0.5.1"}
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2015-12-21T01:34:08",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "password=pixiv-password&client_id=bYGKuGVw91e0NMfPGp44euvGt59s&client_secret=HP3RmkgAmEGro0gn1x9ioawQE8WMfvLXDz3ZqxpK&username=pixiv-username&grant_type=password"
+        },
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Encoding": "gzip, deflate",
+          "Connection": "keep-alive",
+          "Content-Length": "148",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "User-Agent": "python-requests/2.9.0"
+        },
+        "method": "POST",
+        "uri": "https://oauth.secure.pixiv.net/auth/token"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAAA53Ry27CMBAF0H/xGkhSEiewq6CoEqUgSp+KZKVhEgyJ7fqBglD+vUOkPtYsvLnyPWONz0SDUVIYIOMzyfIcjGFWHkCQMXmPT4+3c70oTTGh0yeef0H5Ustk9rx/XZ8WLFrNnQibh2VhSI9AozhijGN1SH2/RzqH2ZNCnHxCpkHjPZPLLnCi4jW3sMVMQ4HV3e/ktyqU+/6RTiKxiZeQbLY3o3BziJJ4tF7N9vfHpfuYrun0bn6Z7AzC+HylZcErYLzOSmBOV6ZLGxbQJqDI7qxV49RLPSOdzmGgeMOPAwE29XJZ11KkXtc1qSck++GMGShR4hyUIr+J/OulPyiI/QbPtVQHtT3CtygENAqGURKiLLL6sttM8b4FYzHBP5VO2P9h27bfFbtbMPgBAAA=",
+          "encoding": null,
+          "string": ""
+        },
+        "headers": {
+          "Cache-Control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+          "Connection": "keep-alive",
+          "Content-Encoding": "gzip",
+          "Content-Length": "311",
+          "Content-Type": "application/json",
+          "Date": "Mon, 21 Dec 2015 01:34:08 GMT",
+          "Expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "Pragma": "no-cache",
+          "Server": "nginx",
+          "Set-Cookie": "PHPSESSID=16513584_afc72c82c2b6285f891c9c6993f47c5f; expires=Mon, 21-Dec-2015 02:34:08 GMT; Max-Age=3600; path=/; domain=.pixiv.net; secure",
+          "Vary": "Accept-Encoding",
+          "X-Content-Type-Options": "nosniff"
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://oauth.secure.pixiv.net/auth/token"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.5.1"
+}

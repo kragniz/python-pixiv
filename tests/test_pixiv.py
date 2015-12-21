@@ -5,6 +5,7 @@ import os
 import unittest
 
 import betamax
+from betamax_serializers import pretty_json
 import pytest
 import requests
 
@@ -18,9 +19,11 @@ test_password = os.environ.get('PASSWORD', 'pixiv-password')
 
 record_mode = 'none' if os.environ.get('CONTINUOUS_INTEGRATION') else 'once'
 
+betamax.Betamax.register_serializer(pretty_json.PrettyJSONSerializer)
 with betamax.Betamax.configure() as config:
     config.cassette_library_dir = 'tests/cassettes'
     config.default_cassette_options['record_mode'] = record_mode
+    config.default_cassette_options['serialize_with'] = 'prettyjson'
     config.define_cassette_placeholder('pixiv-username', test_username)
     config.define_cassette_placeholder('pixiv-password', test_password)
 
