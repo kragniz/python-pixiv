@@ -22,6 +22,7 @@ python-pixiv: Pixiv API client for moe girls.
 * Documentation: https://pixiv.readthedocs.org.
 * Contribute: https://github.com/kragniz/python-pixiv
 
+python-pixiv supports and runs continuous tests for python 2.7, 3.4 and 3.5, and PyPy. Tests are run on both Linux and Windows.
 
 Quickstart
 ----------
