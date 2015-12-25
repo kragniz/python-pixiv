@@ -27,3 +27,7 @@ Example
         print(work.title)
 
     user.favorites
+
+    for art in user.works():
+        # save the artwork to the currect directory
+        art.save()
