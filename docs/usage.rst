@@ -2,7 +2,9 @@
 Usage
 =====
 
-To use Pixiv in a project::
+To use Pixiv in a project:
+
+.. code-block:: python
 
     import pixiv
 
