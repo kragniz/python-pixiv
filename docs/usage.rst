@@ -29,5 +29,5 @@ Example
     user.favorites
 
     for art in user.works():
-        # save the artwork to the currect directory
+        # save the artwork to the currect working directory
         art.save()
