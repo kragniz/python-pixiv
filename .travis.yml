@@ -13,6 +13,7 @@ env:
   - TOXENV=py27
   - TOXENV=pypy
   - TOXENV=flake8
+  - TOXENV=coverage
 
 before_install:
       - pip install codecov
