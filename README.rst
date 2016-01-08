@@ -15,7 +15,7 @@ python-pixiv
         :target: https://pixiv.readthedocs.org
         :alt: Documentation Status
 
- .. image:: https://badge.waffle.io/kragniz/python-pixiv.png?label=ready&title=Ready 
+.. image:: https://badge.waffle.io/kragniz/python-pixiv.png?label=ready&title=Ready 
          :target: https://waffle.io/kragniz/python-pixiv
          :alt: 'Stories in Ready'
 
