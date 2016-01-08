@@ -9,8 +9,8 @@ from .pixiv import User
 from .pixiv import Work
 
 
-def login(username, password):
-    p = Pixiv()
+def login(username, password, session=None):
+    p = Pixiv(session=session)
     p.login(username, password)
     return p
 

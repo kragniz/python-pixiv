@@ -34,6 +34,10 @@ class TestPixiv:
         p.login(test_username, test_password)
         assert p.auth_token is not None
 
+    def test_login_helper_function(self, betamax_session):
+        p = pixiv.login(test_username, test_password, session=betamax_session)
+        assert p.auth_token is not None
+
     def test_user(self, betamax_session):
         p = pixiv.Pixiv(session=betamax_session)
         p.login(test_username, test_password)
