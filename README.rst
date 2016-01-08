@@ -1,6 +1,3 @@
-.. image:: https://badge.waffle.io/kragniz/python-pixiv.png?label=ready&title=Ready 
- :target: https://waffle.io/kragniz/python-pixiv
- :alt: 'Stories in Ready'
 ============
 python-pixiv
 ============
@@ -17,6 +14,10 @@ python-pixiv
 .. image:: https://readthedocs.org/projects/pixiv/badge/?version=latest
         :target: https://pixiv.readthedocs.org
         :alt: Documentation Status
+
+ .. image:: https://badge.waffle.io/kragniz/python-pixiv.png?label=ready&title=Ready 
+ :target: https://waffle.io/kragniz/python-pixiv
+ :alt: 'Stories in Ready'
 
 
 python-pixiv: Pixiv API client for moe girls.
