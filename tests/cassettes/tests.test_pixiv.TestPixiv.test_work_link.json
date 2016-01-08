@@ -1,0 +1,50 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2016-01-08T22:02:56",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "grant_type=password&client_id=bYGKuGVw91e0NMfPGp44euvGt59s&client_secret=HP3RmkgAmEGro0gn1x9ioawQE8WMfvLXDz3ZqxpK&username=pixiv-username&password=pixiv-password"
+        },
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Encoding": "gzip, deflate",
+          "Connection": "keep-alive",
+          "Content-Length": "148",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "User-Agent": "python-requests/2.9.0"
+        },
+        "method": "POST",
+        "uri": "https://oauth.secure.pixiv.net/auth/token"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAAA53RXW+CMBQG4P/SaxVQAeOd2QzBuMwt0YWFpAE8aAe0TVtmmeG/70iyj2svevOm73Oa0ytRoKXgGsjySrKiAK2pERVwsiRRpcoonlZhxPJAFXO9fn5wD65HTVTmY5ju65gdqvWX3S3IiICVDDHKsDoLXHdEBoeaTiJOcsgUKLynCzEELa9ZwwwcMVNQYvX8O5m9Ju+7LA73T2+iot1FJI/hqmHTZNOZ+DjefGxXL111Sfh2ju1WI4zPl0qUrAbKmuwEtFW1HlJLvcB6AbJnY+QydVJHi1YVMJHMss8JB5M6hWgawVNn6OrU4YL+cFpPJD/hHJR81/ru/dIf5IWuxXMvNUD9iLAjCl7gezN/cVsFz5rbbjPJxga0wQT/VLTc/A/7vv8GlXBQLPgBAAA=",
+          "encoding": null,
+          "string": ""
+        },
+        "headers": {
+          "Cache-Control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+          "Connection": "keep-alive",
+          "Content-Encoding": "gzip",
+          "Content-Length": "311",
+          "Content-Type": "application/json",
+          "Date": "Fri, 08 Jan 2016 22:02:56 GMT",
+          "Expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "Pragma": "no-cache",
+          "Server": "nginx",
+          "Set-Cookie": "PHPSESSID=16513584_dc90a42abaf439c5c72a6dfc6daf265c; expires=Fri, 08-Jan-2016 23:02:56 GMT; Max-Age=3600; path=/; domain=.pixiv.net; secure",
+          "Vary": "Accept-Encoding",
+          "X-Content-Type-Options": "nosniff"
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://oauth.secure.pixiv.net/auth/token"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.5.1"
+}

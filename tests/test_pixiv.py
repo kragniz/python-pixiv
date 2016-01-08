@@ -51,3 +51,9 @@ class TestPixiv:
         work = user.works()[0]
         assert work.title == u'星の語'
         assert work.id == 54032421
+
+    def test_work_link(self, betamax_session):
+        p = pixiv.Pixiv(session=betamax_session)
+        p.login(test_username, test_password)
+        work = p.work(54616226)
+        assert '54616226' in work.link
