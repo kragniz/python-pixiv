@@ -52,6 +52,15 @@ class TestPixiv:
         assert work.title == u'星の語'
         assert work.id == 54032421
 
+    def test_user_works_save(self, betamax_session):
+        p = pixiv.Pixiv(session=betamax_session)
+        p.login(test_username, test_password)
+        user = p.user(7631951)
+        work = user.works()[0]
+        work.save('image')
+
+        assert os.path.isfile('image') == True
+
     def test_work_link(self, betamax_session):
         p = pixiv.Pixiv(session=betamax_session)
         p.login(test_username, test_password)
