@@ -57,3 +57,9 @@ class TestPixiv:
         p.login(test_username, test_password)
         work = p.work(54616226)
         assert '54616226' in work.link
+
+    def test_search(self, betamax_session):
+        p = pixiv.Pixiv(session=betamax_session)
+        p.login(test_username, test_password)
+        r = p.search('【降金】1/10インテ発行予定小説本表紙サンプル【◆A腐】')[0]
+        assert r.id == 54616659

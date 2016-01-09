@@ -1,6 +1,8 @@
 from abc import ABCMeta, abstractmethod
+import collections
 import json
 import os
+import urllib
 
 import requests
 import six
@@ -23,9 +25,17 @@ class Authed(object):
         if self.auth_token is None:
             raise exceptions.NotAuthedError('You need to login() first')
 
+        params = kwargs.pop('params', None)
+        if params is not None:
+            params = urllib.urlencode(collections.OrderedDict(sorted(params.items())))
+            print(params)
+
         headers = {'Referer': 'http://spapi.pixiv.net/',
                    'Authorization': 'Bearer {}'.format(self.auth_token)}
-        return self.session.get(url, headers=headers, **kwargs)
+        return self.session.get(url,
+                                headers=headers,
+                                params=params,
+                                **kwargs)
 
 
 class Work(Authed):
