@@ -103,7 +103,6 @@ class BaseUser(object):
     @abstractmethod
     def works(self):
         '''Return works for this user'''
-        pass
 
 
 class User(BaseUser, Authed):
