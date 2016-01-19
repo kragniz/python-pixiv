@@ -1,12 +1,12 @@
 from __future__ import print_function
 
-__author__ = 'Louis Taylor'
-__email__ = 'louis@kragniz.eu'
-__version__ = '0.1.1'
-
 from .pixiv import Pixiv
 from .pixiv import User
 from .pixiv import Work
+
+__author__ = 'Louis Taylor'
+__email__ = 'louis@kragniz.eu'
+__version__ = '0.1.1'
 
 
 def login(username, password, session=None):
