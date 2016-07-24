@@ -1,14 +1,14 @@
 Welcome to Pixiv's documentation!
 =================================
 
-``python-pixiv`` is an easy to use client for the Pixiv API.
+.. include:: readme.rst
 
 Contents:
+=========
 
 .. toctree::
    :maxdepth: 2
 
-   readme
    installation
    usage
    api
